@@ -1,0 +1,47 @@
+﻿@model Ejercicios_4___6___MVC.Models.Compra
+@{
+    ViewBag.Title = "Ejercicio6";
+}
+
+<h3>Compra</h3>
+
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.Label("Cantidad: ", new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.cant_art, new { @class = "form-control" })
+    </div>
+    @Html.Label("Los decimales se separan por coma")
+    <div class="form-group">
+        @Html.Label("Precio: ", new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.precio_unit, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="COMPRAR" class="btn btn-primary btn-block" />
+    </div>
+    if (ViewBag.resultado != null)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary md-6">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Monto total de la compra</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="h4 text-primary">@ViewBag.resultado</p>
+                        <p class="h4">@ViewBag.resultadoD</p>
+                        <p class="h4">@ViewBag.resultadoM</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    }
+}
+

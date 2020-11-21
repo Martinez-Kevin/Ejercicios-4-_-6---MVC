@@ -1,0 +1,82 @@
+﻿@model Ejercicios_4___6___MVC.Models.Notas
+@{
+    ViewBag.Title = "Ejercicio4";
+}
+
+<h3>Promedio de notas </h3>
+
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.Label("Nota: Ingrese las notas desde el 1 al 5 ", new { @class = "control-label" })<br /><br />
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <div class="form-group">
+                @Html.Label("Codigo del estudiante: ", new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.cod, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Nombre: ", new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Materia: ", new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.materia, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.Label("Nota 1: ", new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.n1, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Nota 2: ", new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.n2, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Nota 3: ", new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.n3, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <input type="submit" value="CALCULAR" class="btn btn-primary btn-block" />
+            </div>
+        </div>
+    </div>
+    if (ViewBag.resultado != null || ViewBag.resultado1 != null)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary md-6">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Promedio de notas</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="h4">Codigo: @ViewBag.codigo</p>
+                        <p class="h4">Nombre:  @ViewBag.nombre</p>
+                        <p class="h4">Materia: @ViewBag.materia</p>
+                        <p class="h4 text-success">@ViewBag.resultado</p>
+                        <p class="h4 text-danger"> @ViewBag.resultado1</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    }
+
+
+}
+
+
+
+
+
